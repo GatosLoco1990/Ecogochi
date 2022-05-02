@@ -1,3 +1,5 @@
+package perfiles;
+
 public class Usuario {
     private boolean estado;
     private String nombre;

@@ -1,3 +1,5 @@
+package perfiles;
+
 public class Administrador {
     private String nombre;
     private String contrasena;
