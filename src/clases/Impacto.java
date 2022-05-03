@@ -1,3 +1,5 @@
+package clases;
+
 public class Impacto {
     private int aguaAhorrada;
     private int energiaAhorrada;
