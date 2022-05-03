@@ -7,6 +7,19 @@ public class Usuario {
     private String correo;
     private String meta;
 
+    public Usuario() {
+
+    }
+
+    public Usuario(String nombre, String contra, String correo) {
+        setEstado(true);
+        setNombre(nombre);
+        setContrasena(contra);
+        setCorreo(correo);
+        setMeta("cero");
+
+    }
+
     public void Registrar() {
 
     }
