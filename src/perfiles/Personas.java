@@ -1,6 +1,6 @@
 package perfiles;
 
-public class Usuario {
+public class Personas {
     private boolean estado;
     private String nombre;
     private String contrasena;
@@ -8,11 +8,11 @@ public class Usuario {
     private int meta;
     private int puntos;
 
-    public Usuario() {
+    public Personas() {
 
     }
 
-    public Usuario(String nombre, String contra, String correo) {
+    public Personas(String nombre, String contra, String correo) {
         setEstado(true);
         setNombre(nombre);
         setContrasena(contra);
