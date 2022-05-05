@@ -35,9 +35,6 @@ public class UserVerification extends JFrame {
     private void login() {
 
         int x = 2;
-        Personas[] persona = new Personas[100];
-        persona[0] = new Personas("Ricardo", "tuki", "ricardogandica@hotmail.com");
-        persona[1] = new Personas("Jose", "retuki", "correo");
 
         JTextField mail = new JTextField("correo");
         mail.setBounds(110, 50, 250, 30);
@@ -63,7 +60,11 @@ public class UserVerification extends JFrame {
                 public void actionPerformed(ActionEvent ae) {
                     String correo = mail.getText().trim();
                     String contraseña = password.getText().trim();
-                    VerificarUsuario(x, persona, contraseña, correo);
+
+                    Personas kka = new Personas();
+
+                    VerificarUsuario(x, kka.getPersonas(), contraseña, correo);
+                    dispose();
 
                 }
             };
@@ -97,7 +98,9 @@ public class UserVerification extends JFrame {
             if (persona[i].getCorreo().equals(correo)) {
                 if (persona[i].getContrasena().equals(contraseña)) {
                     Usuario v1 = new Usuario();
+
                     System.out.print(i);
+                    persona[i].setPe(i);
 
                     v1.setVisible(true);
                     n = 1;
@@ -106,7 +109,8 @@ public class UserVerification extends JFrame {
             }
         }
         if (n == 0) {
-            System.out.println("No se pudo iniciar sesión, reinicie para volver a intentar");
+            error v1 = new error();
+            v1.setVisible(true);
 
         }
     }
