@@ -73,7 +73,7 @@ public class Registro extends JFrame {
                     String correo = mail.getText().trim();
                     String contraseña = password.getText().trim();
                     Personas[] persona = new Personas[100];
-                    persona[3] = new Personas(nombre, contraseña, correo);
+                    persona[3] = new Personas(nombre, contraseña, correo, 3);
 
                     Usuario v1 = new Usuario();
                     v1.setVisible(true);

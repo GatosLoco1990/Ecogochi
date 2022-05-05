@@ -1,6 +1,7 @@
 package vistas;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.*;
@@ -33,6 +34,7 @@ public class Home extends JFrame {
     }
 
     private void userOptions() {
+
         JButton login = new JButton("Iniciar sesión");
         login.setBounds(160, 190, 170, 50);
         login.setBackground(Color.decode("#dbeddc"));
@@ -50,8 +52,10 @@ public class Home extends JFrame {
         ActionListener loginA = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+
                 UserVerification v1 = new UserVerification();
                 v1.setVisible(true);
+                dispose();
             }
         };
         login.addActionListener(loginA);
@@ -61,9 +65,11 @@ public class Home extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 Registro v1 = new Registro();
                 v1.setVisible(true);
+                dispose();
 
             }
         };
         signUp.addActionListener(signA);
     }
+
 }
