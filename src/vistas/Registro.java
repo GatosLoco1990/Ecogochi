@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import perfiles.Personas;
-import vistas.UserVerification;
+import vistas.Verificacion;
 
 public class Registro extends JFrame {
     public JPanel panel = new JPanel();
@@ -72,15 +72,16 @@ public class Registro extends JFrame {
                     String nombre = name.getText().trim();
                     String correo = mail.getText().trim();
                     String contraseña = password.getText().trim();
-                    Personas[] persona = new Personas[100];
-                    persona[3] = new Personas(nombre, contraseña, correo, 3);
+                    Personas pers = new Personas();
 
-                    Usuario v1 = new Usuario();
+                    pers.getPersonas()[3] = new Personas(nombre, contraseña, correo, 3);
+
+                    Usuario v1 = new Usuario(3);
                     v1.setVisible(true);
 
                 }
             };
-            log.addActionListener(log1);
+            send.addActionListener(log1);
         }
     }
 

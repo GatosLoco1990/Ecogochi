@@ -6,8 +6,9 @@ import java.awt.event.*;
 
 public class Mascota extends JFrame {
     public JPanel panel = new JPanel();
+    private int i;
 
-    public Mascota() {
+    public Mascota(int i) {
         panel.setLayout(null);
         this.setSize(500, 400);
         setLocationRelativeTo(null);
@@ -22,11 +23,19 @@ public class Mascota extends JFrame {
         panel.add(title);
 
         // Opciones
-        petView();
+        petView(i);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    private void petView() {
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+
+    private void petView(int i) {
 
         JLabel picture = new JLabel();
         ImageIcon img = new ImageIcon("img/ante.png");
@@ -77,8 +86,9 @@ public class Mascota extends JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
 
-                Usuario v1 = new Usuario();
+                Usuario v1 = new Usuario(i);
                 v1.setVisible(true);
+                dispose();
 
             }
         };
@@ -87,8 +97,9 @@ public class Mascota extends JFrame {
         ActionListener takeCareG = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Cuidar v1 = new Cuidar();
+                Cuidar v1 = new Cuidar(i);
                 v1.setVisible(true);
+                dispose();
 
             }
         };

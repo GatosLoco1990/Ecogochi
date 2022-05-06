@@ -22,7 +22,7 @@ public class Personas {
         setCorreo(correo);
         setMeta(0);
         setPuntos(10);
-        setPe(i);
+        setI(i);
 
     }
 
@@ -66,6 +66,10 @@ public class Personas {
         return nombre;
     }
 
+    public int getI() {
+        return i;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -78,6 +82,10 @@ public class Personas {
         this.puntos = puntos;
     }
 
+    public void setI(int i) {
+        this.i = i;
+    }
+
     public void desbloquearMascotas() {
 
     }
@@ -88,11 +96,4 @@ public class Personas {
         return persona;
     }
 
-    public void setPe(int ia) {
-        this.i = ia;
-    }
-
-    public int getPe() {
-        return i;
-    }
 }

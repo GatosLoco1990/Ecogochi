@@ -53,7 +53,8 @@ public class Home extends JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
 
-                UserVerification v1 = new UserVerification();
+                Verificacion v1 = new Verificacion();
+
                 v1.setVisible(true);
                 dispose();
             }

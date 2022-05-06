@@ -9,8 +9,9 @@ import perfiles.Personas;
 
 public class Tareas extends JFrame {
     public JPanel panel = new JPanel();
+    private int i;
 
-    public Tareas() {
+    public Tareas(int i) {
         panel.setLayout(null);
 
         this.setSize(500, 400);
@@ -26,10 +27,10 @@ public class Tareas extends JFrame {
         panel.add(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Opciones
-        task();
+        task(i);
     }
 
-    private void task() {
+    private void task(int i) {
 
         JLabel water = new JLabel("Tarea 1- Cerrar las llaves de agua", SwingConstants.CENTER);
         water.setBounds(10, 40, 300, 50);
@@ -50,7 +51,7 @@ public class Tareas extends JFrame {
                 Personas kka = new Personas();
                 tasks v1 = new tasks("agua", 10);
                 v1.sumarPuntos(kka.getPersonas());
-                System.out.println(kka.getPersonas()[0].getPuntos() + v1.getCantidadPuntos());
+                System.out.println(kka.getPersonas()[i].getPuntos() + v1.getCantidadPuntos());
             }
         };
         waterB.addActionListener(primenv);
@@ -92,7 +93,7 @@ public class Tareas extends JFrame {
         ActionListener goHome = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Usuario v1 = new Usuario();
+                Usuario v1 = new Usuario(i);
                 v1.setVisible(true);
                 dispose();
 
