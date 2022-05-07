@@ -4,10 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import clases.news;
+
 public class NoticiaView extends JFrame {
+    public news ne = new news();
+
     public JPanel panel = new JPanel();
 
-    public NoticiaView(int i) {
+    public NoticiaView(int i, int m) {
         panel.setLayout(null);
 
         this.setSize(500, 400);
@@ -17,30 +21,29 @@ public class NoticiaView extends JFrame {
         setIconImage(img.getImage());
         this.getContentPane().add(panel);
 
-        JLabel title = new JLabel("Titulo de la noticia", SwingConstants.CENTER);
+        JLabel title = new JLabel(ne.getnw()[m].getTitulo(), SwingConstants.CENTER);
         title.setBounds(90, 10, 300, 30);
         title.setFont(new Font("arial", Font.BOLD, 20));
         panel.add(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Opciones
-        openNews(i);
+        openNews(i, m);
     }
 
-    private void openNews(int i) {
+    private void openNews(int i, int m) {
 
-        JLabel autor = new JLabel("Nombre del autor", SwingConstants.CENTER);
+        JLabel autor = new JLabel(ne.getnw()[m].getAutor(), SwingConstants.CENTER);
         autor.setBounds(100, 40, 300, 50);
         autor.setFont(new Font("arial", Font.BOLD, 14));
         panel.add(autor);
 
-        JLabel fecha = new JLabel("Fecha", SwingConstants.CENTER);
+        JLabel fecha = new JLabel(ne.getnw()[m].getFecha(), SwingConstants.CENTER);
         fecha.setBounds(100, 90, 300, 50);
         fecha.setFont(new Font("arial", Font.BOLD, 14));
         panel.add(fecha);
 
-        JTextArea tip1 = new JTextArea(
-                "Todas las personas estamos interconectadas y dependemos las unas\n de las otras. Todas y todas sumamos. Todos los\n gestos suman. Todo suma, también en la defensa de nuestro\n patrimonio más ancestral: el medio \nambiente.");
+        JTextArea tip1 = new JTextArea(ne.getnw()[m].getDescripcion());
         tip1.setBounds(20, 140, 420, 150);
         tip1.setEditable(false);
         panel.add(tip1);

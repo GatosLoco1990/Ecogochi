@@ -4,7 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import clases.news;
+
 public class Noticias extends JFrame {
+    public news ne = new news();
     public JPanel panel = new JPanel();
 
     public Noticias(int i) {
@@ -29,7 +32,7 @@ public class Noticias extends JFrame {
 
     private void readNews(int i) {
 
-        JButton noticia1 = new JButton("Comunidad EcoAmigable");
+        JButton noticia1 = new JButton(ne.getnw()[0].getTitulo());
         noticia1.setBounds(5, 40, 475, 50);
         noticia1.setBackground(Color.decode("#458bc6"));
         noticia1.setFont(new Font("arial", Font.BOLD, 17));
@@ -81,7 +84,7 @@ public class Noticias extends JFrame {
         ActionListener readNew = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                NoticiaView v1 = new NoticiaView(i);
+                NoticiaView v1 = new NoticiaView(i, 0);
                 v1.setVisible(true);
                 dispose();
 

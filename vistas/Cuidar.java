@@ -81,9 +81,11 @@ public class Cuidar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (ma.getMasco()[m].getSalud() < 95) {
-                    ma.getMasco()[m].subirsalud(5);
+                    ma.getMasco()[m].setSalud(ma.getMasco()[m].getSalud() + 5);
+                    ma.getMasco()[m].setSalud(5);
+                    System.out.println(ma.getMasco()[m].getSalud());
                 }
-                health.setText("Salud: " + ma.getMasco()[m].getSalud() + "%");
+                health.setText("Salud:" + ma.getMasco()[m].getSalud() + "%");
             }
         };
         buttonHealth.addActionListener(health1);

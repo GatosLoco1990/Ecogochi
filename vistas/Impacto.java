@@ -36,7 +36,7 @@ public class Impacto extends JFrame {
         water.setBackground(Color.decode("#dbeddc"));
         panel.add(water);
 
-        JLabel waterC = new JLabel("X Litros", SwingConstants.CENTER);
+        JLabel waterC = new JLabel("20 Litros", SwingConstants.CENTER);
         waterC.setBounds(335, 40, 140, 50);
         waterC.setFont(new Font("arial", Font.BOLD, 14));
         waterC.setOpaque(true);
@@ -50,7 +50,7 @@ public class Impacto extends JFrame {
         elect.setBackground(Color.decode("#dbeddc"));
         panel.add(elect);
 
-        JLabel electC = new JLabel("X kWh", SwingConstants.CENTER);
+        JLabel electC = new JLabel("5 kWh", SwingConstants.CENTER);
         electC.setBounds(335, 100, 140, 50);
         electC.setFont(new Font("arial", Font.BOLD, 14));
         electC.setOpaque(true);
