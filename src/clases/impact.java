@@ -1,10 +1,10 @@
 package clases;
 
-public class Impacto {
+public class impact {
     private int aguaAhorrada;
     private int energiaAhorrada;
 
-    public Impacto() {
+    public impact() {
         aguaAhorrada = 0;
         energiaAhorrada = 0;
     }

@@ -1,6 +1,6 @@
 package clases;
 
-public class Noticias {
+public class news {
     public String autor;
     public String titulo;
     public String descripcion;
