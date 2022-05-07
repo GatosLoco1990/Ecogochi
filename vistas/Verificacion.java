@@ -4,13 +4,15 @@ import java.awt.event.*;
 import java.lang.reflect.GenericArrayType;
 import java.awt.*;
 import javax.swing.*;
-import perfiles.Personas;
 
-public class UserVerification extends JFrame {
+import perfiles.Personas;
+import vistas.Usuario;
+
+public class Verificacion extends JFrame {
 
     public JPanel panel = new JPanel();
 
-    public UserVerification() {
+    public Verificacion() {
         panel.setLayout(null);
 
         this.setSize(500, 250);
@@ -33,16 +35,13 @@ public class UserVerification extends JFrame {
     private void login() {
 
         int x = 2;
-        Personas[] persona = new Personas[100];
-        persona[0] = new Personas("Ricardo", "tuki", "ricardogandica@hotmail.com");
-        persona[1] = new Personas("Jose", "retuki", "correo");
 
         JTextField mail = new JTextField("correo");
         mail.setBounds(110, 50, 250, 30);
         // System.out.println("Ingresado: "+text1.getText());
         panel.add(mail);
 
-        JTextField password = new JTextField("contraseña");
+        JTextField password = new JTextField("retuki");
         password.setBounds(110, 90, 250, 30);
         // System.out.println("Ingresado: "+text1.getText());
         panel.add(password);
@@ -54,17 +53,23 @@ public class UserVerification extends JFrame {
         panel.add(send);
 
         // Acciones
+        if (mail != null && password != null) {
+
             ActionListener signA = new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
-                    Usuario v1 = new Usuario();
-                    v1.setVisible(true);
+                    String correo = mail.getText().trim();
+                    String contraseña = password.getText().trim();
+
+                    Personas kka = new Personas();
+
+                    VerificarUsuario(x, kka.getPersonas(), contraseña, correo);
                     dispose();
+
                 }
             };
             send.addActionListener(signA);
-
-        
+        }
         JButton home = new JButton();
         home.setBounds(5, 5, 15, 15);
         ImageIcon house = new ImageIcon("img/home.png");
@@ -77,6 +82,7 @@ public class UserVerification extends JFrame {
                 Home v1 = new Home();
                 v1.setVisible(true);
                 dispose();
+
             }
         };
         home.addActionListener(goHome);
@@ -84,6 +90,29 @@ public class UserVerification extends JFrame {
         // Verificar que no estén vacios los campos
         // Ir a Usuario.java
 
+    }
+
+    public static void VerificarUsuario(int x, Personas[] persona, String contraseña, String correo) {
+        int n = 0;
+
+        for (int i = 0; i <= x - 1; i++) {
+            if (persona[i].getCorreo().equals(correo)) {
+                if (persona[i].getContrasena().equals(contraseña)) {
+                    System.out.println("En veri es: " + i);
+
+                    Usuario v1 = new Usuario(i);
+
+                    v1.setVisible(true);
+                    n = 1;
+                    break;
+                }
+            }
+        }
+        if (n == 0) {
+            error v1 = new error();
+            v1.setVisible(true);
+
+        }
     }
 
 }

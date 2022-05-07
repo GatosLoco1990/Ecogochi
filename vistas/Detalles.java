@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import clases.news;
+import clases.pet;
 
-public class NoticiaView extends JFrame {
-    public news ne = new news();
-
+public class Detalles extends JFrame {
     public JPanel panel = new JPanel();
 
-    public NoticiaView(int i, int m) {
+    public Detalles(int i, int id) {
+        pet ma = new pet();
+
         panel.setLayout(null);
 
         this.setSize(500, 400);
@@ -21,33 +21,16 @@ public class NoticiaView extends JFrame {
         setIconImage(img.getImage());
         this.getContentPane().add(panel);
 
-        JLabel title = new JLabel(ne.getnw()[m].getTitulo(), SwingConstants.CENTER);
-        title.setBounds(90, 10, 300, 30);
+        JLabel title = new JLabel(ma.getMasco()[id].getNombre(), SwingConstants.CENTER);
+        title.setBounds(30, 10, 400, 30);
         title.setFont(new Font("arial", Font.BOLD, 20));
         panel.add(title);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // Opciones
-        openNews(i, m);
-    }
-
-    private void openNews(int i, int m) {
-
-        JLabel autor = new JLabel(ne.getnw()[m].getAutor(), SwingConstants.CENTER);
-        autor.setBounds(100, 40, 300, 50);
-        autor.setFont(new Font("arial", Font.BOLD, 14));
-        panel.add(autor);
-
-        JLabel fecha = new JLabel(ne.getnw()[m].getFecha(), SwingConstants.CENTER);
-        fecha.setBounds(100, 90, 300, 50);
-        fecha.setFont(new Font("arial", Font.BOLD, 14));
-        panel.add(fecha);
-
-        JTextArea tip1 = new JTextArea(ne.getnw()[m].getDescripcion());
-        tip1.setBounds(20, 140, 420, 150);
-        tip1.setEditable(false);
-        panel.add(tip1);
-        // Acciones
+        JTextArea txt = new JTextArea(ma.getMasco()[id].getDescripcion());
+        txt.setBounds(20, 140, 420, 150);
+        txt.setEditable(false);
+        panel.add(txt);
 
         JButton home = new JButton();
         home.setBounds(5, 5, 15, 15);
@@ -61,12 +44,9 @@ public class NoticiaView extends JFrame {
                 Usuario v1 = new Usuario(i);
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         home.addActionListener(goHome);
-
-        // Volver a la pagina inicial
 
     }
 

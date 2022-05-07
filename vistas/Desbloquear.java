@@ -10,7 +10,7 @@ public class Desbloquear extends JFrame {
     private int i;
     public JPanel panel = new JPanel();
 
-    public Desbloquear() {
+    public Desbloquear(int i) {
 
         panel.setLayout(null);
 
@@ -28,16 +28,16 @@ public class Desbloquear extends JFrame {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Opciones
-        userView();
+        userView(i);
     }
 
-    private void userView() {
+    private void userView(int i) {
 
         JButton pet1 = new JButton();
         pet1.setBounds(50, 50, 170, 50);
         pet1.setBackground(Color.decode("#dbeddc"));
         pet1.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet1i =  new ImageIcon("img/puma.png");
+        ImageIcon pet1i = new ImageIcon("img/pets/delfin.png");
         pet1.setIcon(new ImageIcon(pet1i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet1);
 
@@ -45,7 +45,7 @@ public class Desbloquear extends JFrame {
         pet2.setBounds(230, 50, 170, 50);
         pet2.setBackground(Color.decode("#dbeddc"));
         pet2.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet2i =  new ImageIcon("img/perezoso.png");
+        ImageIcon pet2i = new ImageIcon("img/pets/perezoso.png");
         pet2.setIcon(new ImageIcon(pet2i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet2);
 
@@ -53,7 +53,7 @@ public class Desbloquear extends JFrame {
         pet3.setBounds(50, 110, 170, 50);
         pet3.setBackground(Color.decode("#dbeddc"));
         pet3.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet3i =  new ImageIcon("img/tigre.png");
+        ImageIcon pet3i = new ImageIcon("img/pets/tigre.png");
         pet3.setIcon(new ImageIcon(pet3i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet3);
 
@@ -61,7 +61,7 @@ public class Desbloquear extends JFrame {
         pet4.setBounds(230, 110, 170, 50);
         pet4.setBackground(Color.decode("#dbeddc"));
         pet4.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet4i =  new ImageIcon("img/tortuga.png");
+        ImageIcon pet4i = new ImageIcon("img/pets/tortuga.png");
         pet4.setIcon(new ImageIcon(pet4i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet4);
 
@@ -69,7 +69,7 @@ public class Desbloquear extends JFrame {
         pet5.setBounds(50, 170, 170, 50);
         pet5.setBackground(Color.decode("#dbeddc"));
         pet5.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet5i =  new ImageIcon("img/polar.png");
+        ImageIcon pet5i = new ImageIcon("img/pets/polar.png");
         pet5.setIcon(new ImageIcon(pet5i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet5);
 
@@ -77,16 +77,15 @@ public class Desbloquear extends JFrame {
         pet6.setBounds(230, 170, 170, 50);
         pet6.setBackground(Color.decode("#dbeddc"));
         pet6.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet6i =  new ImageIcon("img/panda.png");
+        ImageIcon pet6i = new ImageIcon("img/pets/panda.png");
         pet6.setIcon(new ImageIcon(pet6i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet6);
 
-       
         JButton pet7 = new JButton();
         pet7.setBounds(50, 230, 170, 50);
         pet7.setBackground(Color.decode("#dbeddc"));
         pet7.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet7i =  new ImageIcon("img/axolot.png");
+        ImageIcon pet7i = new ImageIcon("img/pets/axolot.png");
         pet7.setIcon(new ImageIcon(pet7i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet7);
 
@@ -94,36 +93,36 @@ public class Desbloquear extends JFrame {
         pet8.setBounds(230, 230, 170, 50);
         pet8.setBackground(Color.decode("#dbeddc"));
         pet8.setFont(new Font("arial", Font.BOLD, 17));
-        ImageIcon pet8i =  new ImageIcon("img/elefante.png");
+        ImageIcon pet8i = new ImageIcon("img/pets/elefante.png");
         pet8.setIcon(new ImageIcon(pet8i.getImage().getScaledInstance(170, 50, Image.SCALE_SMOOTH)));
         panel.add(pet8);
         // Acciones
 
-        // ActionListener pet1 = new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent ae) {
-        //         Mascota v1 = new Mascota();
-        //         v1.setVisible(true);
-        //         dispose();
-        //     }
-        // };
-        // pet.addActionListener(pet1);
+        ActionListener pt1 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Mascota v1 = new Mascota(i, 1);
+                v1.setVisible(true);
+                dispose();
+            }
+        };
+        pet1.addActionListener(pt1);
 
         JButton home = new JButton();
-        home.setBounds(5,5,15,15);
-        ImageIcon house =  new ImageIcon("img/home.png");
+        home.setBounds(5, 5, 15, 15);
+        ImageIcon house = new ImageIcon("img/home.png");
         home.setIcon(new ImageIcon(house.getImage().getScaledInstance(10, 10, Image.SCALE_SMOOTH)));
         panel.add(home);
-        
-                ActionListener goHome = new ActionListener(){
-                    @Override
-                    public void actionPerformed(ActionEvent ae){ 
-                        Usuario v1 = new Usuario();
-                        v1.setVisible(true);
-                        dispose();
-                    }
-                };
-                home.addActionListener(goHome);
+
+        ActionListener goHome = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Usuario v1 = new Usuario(i);
+                v1.setVisible(true);
+                dispose();
+            }
+        };
+        home.addActionListener(goHome);
     }
 
     public void setPe(int i) {
