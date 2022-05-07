@@ -2,12 +2,12 @@ package clases;
 
 import perfiles.Personas;
 
-public class Tareas {
+public class tasks {
     private String descripcion;
     private int cantidadPuntos;
     private boolean completado;
 
-    public Tareas(String descripcion, int cantidadPuntos) {
+    public tasks(String descripcion, int cantidadPuntos) {
         this.setDescripcion(descripcion);
         this.setCantidadPuntos(cantidadPuntos);
     }
@@ -37,7 +37,7 @@ public class Tareas {
     }
 
     public void sumarPuntos(Personas[] usuario) {
-
+        usuario[0].setPuntos(usuario[0].getPuntos() + getCantidadPuntos());
     }
 
     public void aumentarImpacto() {
