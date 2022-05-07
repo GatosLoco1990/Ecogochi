@@ -7,8 +7,8 @@ import javax.swing.*;
 import perfiles.Personas;
 
 public class Usuario extends JFrame {
-
-    private int i;
+    public static boolean recargar = false;
+    private int i ;
     public JPanel panel = new JPanel();
 
     public Usuario() {
@@ -34,18 +34,24 @@ public class Usuario extends JFrame {
 
     private void userView() {
 
-        Personas kka = new Personas();
+        Personas[] persona = new Personas[100];
+        persona[0] = new Personas("Ricardo", "tuki", "ricardogandica@hotmail.com");
+        persona[1] = new Personas("Jose", "retuki", "correo");
 
-        JLabel name = new JLabel("Nombre: " + kka.getPersonas()[1].getNombre(), SwingConstants.CENTER);
+        JLabel name = new JLabel("Nombre: josetor101");
         name.setBounds(30, 40, 300, 30);
         name.setFont(new Font("arial", Font.BOLD, 14));
         panel.add(name);
 
-        JLabel points = new JLabel("Puntos: " + kka.getPersonas()[1].getPuntos(), SwingConstants.CENTER);
-        points.setBounds(28, 70, 300, 30);
+        JLabel points = new JLabel();
+        points.setText("Puntos: "+Personas.puntos);
+        points.setBounds(30, 70, 300, 30);
         points.setFont(new Font("arial", Font.BOLD, 14));
         panel.add(points);
 
+        if(recargar){
+            points.setText("Puntos: "+Personas.puntos);
+        }
         JButton pet = new JButton("Mascota");
         pet.setBounds(50, 190, 170, 50);
         pet.setBackground(Color.decode("#dbeddc"));
@@ -77,7 +83,6 @@ public class Usuario extends JFrame {
                 Mascota v1 = new Mascota();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         pet.addActionListener(pet1);
@@ -88,7 +93,6 @@ public class Usuario extends JFrame {
                 Tareas v1 = new Tareas();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         task.addActionListener(task1);
@@ -99,7 +103,6 @@ public class Usuario extends JFrame {
                 Impacto v1 = new Impacto();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         impacto.addActionListener(impact1);
@@ -110,12 +113,19 @@ public class Usuario extends JFrame {
                 Noticias v1 = new Noticias();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         noticia.addActionListener(noticia1);
         // Volver a la pagina inicial
 
+    }
+
+    public void setPe(int i) {
+        this.i = i;
+    }
+
+    public int getPe() {
+        return i;
     }
 
 }

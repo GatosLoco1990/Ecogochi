@@ -6,23 +6,19 @@ public class Personas {
     private String contrasena;
     private String correo;
     private int meta;
-    private int puntos;
-    private int i;
-
-    public Personas[] persona = new Personas[100];
+    public static int puntos;
 
     public Personas() {
 
     }
 
-    public Personas(String nombre, String contra, String correo, int i) {
+    public Personas(String nombre, String contra, String correo) {
         setEstado(true);
         setNombre(nombre);
         setContrasena(contra);
         setCorreo(correo);
         setMeta(0);
-        setPuntos(10);
-        setPe(i);
+        setPuntos(120);
 
     }
 
@@ -74,25 +70,11 @@ public class Personas {
         return puntos;
     }
 
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
+    public void setPuntos(int punts) {
+        puntos = punts;
     }
 
     public void desbloquearMascotas() {
 
-    }
-
-    public Personas[] getPersonas() {
-        persona[0] = new Personas("Ricardo", "tuki", "ricardogandica@hotmail.com", 0);
-        persona[1] = new Personas("Jose", "retuki", "correo", 1);
-        return persona;
-    }
-
-    public void setPe(int ia) {
-        this.i = ia;
-    }
-
-    public int getPe() {
-        return i;
     }
 }
