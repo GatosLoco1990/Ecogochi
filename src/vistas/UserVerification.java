@@ -16,7 +16,7 @@ public class UserVerification extends JFrame {
         this.setSize(500, 250);
         setLocationRelativeTo(null);
         setTitle("ECOGOCHI");
-        ImageIcon img = new ImageIcon("img/logo.png");
+        ImageIcon img = new ImageIcon("src/img/logo.png");
         setIconImage(img.getImage());
         this.getContentPane().add(panel);
 
@@ -54,17 +54,16 @@ public class UserVerification extends JFrame {
         panel.add(send);
 
         // Acciones
-            ActionListener signA = new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    Usuario v1 = new Usuario();
-                    v1.setVisible(true);
-                    dispose();
-                }
-            };
-            send.addActionListener(signA);
+        ActionListener signA = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Usuario v1 = new Usuario();
+                v1.setVisible(true);
+                dispose();
+            }
+        };
+        send.addActionListener(signA);
 
-        
         JButton home = new JButton();
         home.setBounds(5, 5, 15, 15);
         ImageIcon house = new ImageIcon("img/home.png");
