@@ -108,8 +108,8 @@ public class pet {
         System.out.println("Salud: " + getSalud() + "%");
     }
 
-    public void cuidarMascota(int salud, int hambre, int sueno) {
-
+    public void subirsalud(int salud) {
+        this.salud += 5;
     }
 
     public void publicarMascota() {

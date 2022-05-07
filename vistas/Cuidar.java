@@ -19,8 +19,8 @@ public class Cuidar extends JFrame {
         setIconImage(img.getImage());
         this.getContentPane().add(panel);
 
-        JLabel title = new JLabel("Nombre de mascota", SwingConstants.CENTER);
-        title.setBounds(90, 10, 300, 30);
+        JLabel title = new JLabel(ma.getMasco()[m].getNombre(), SwingConstants.CENTER);
+        title.setBounds(30, 10, 400, 30);
         title.setFont(new Font("arial", Font.BOLD, 20));
         panel.add(title);
         // Opciones
@@ -76,6 +76,40 @@ public class Cuidar extends JFrame {
         ImageIcon house = new ImageIcon("img/home.png");
         home.setIcon(new ImageIcon(house.getImage().getScaledInstance(10, 10, Image.SCALE_SMOOTH)));
         panel.add(home);
+
+        ActionListener health1 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (ma.getMasco()[m].getSalud() < 95) {
+                    ma.getMasco()[m].subirsalud(5);
+                }
+                health.setText("Salud: " + ma.getMasco()[m].getSalud() + "%");
+            }
+        };
+        buttonHealth.addActionListener(health1);
+
+        ActionListener hunger1 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (ma.getMasco()[m].getHambre() < 100) {
+                    ma.getMasco()[m].subirsalud(5);
+                }
+                hunger.setText("Hambre:" + ma.getMasco()[m].getHambre() + "%");
+            }
+        };
+        buttonHunger.addActionListener(hunger1);
+
+        ActionListener sleep1 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (ma.getMasco()[m].getSalud() < 96) {
+                    ma.getMasco()[m].subirsalud(5);
+
+                }
+                sleep.setText("Sueño:" + ma.getMasco()[m].getSalud() + "%");
+            }
+        };
+        buttonSleep.addActionListener(sleep1);
 
         ActionListener goHome = new ActionListener() {
             @Override
