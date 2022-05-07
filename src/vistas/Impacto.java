@@ -7,7 +7,7 @@ import javax.swing.*;
 public class Impacto extends JFrame {
     public JPanel panel = new JPanel();
 
-    public Impacto() {
+    public Impacto(int i) {
         panel.setLayout(null);
 
         this.setSize(500, 400);
@@ -23,11 +23,11 @@ public class Impacto extends JFrame {
         panel.add(title);
 
         // Opciones
-        userImpact();
+        userImpact(i);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    private void userImpact() {
+    private void userImpact(int i) {
 
         JLabel water = new JLabel("Agua ahorrada aprox.", SwingConstants.CENTER);
         water.setBounds(10, 40, 300, 50);
@@ -36,7 +36,7 @@ public class Impacto extends JFrame {
         water.setBackground(Color.decode("#dbeddc"));
         panel.add(water);
 
-        JLabel waterC = new JLabel("20 Litros", SwingConstants.CENTER);
+        JLabel waterC = new JLabel("X Litros", SwingConstants.CENTER);
         waterC.setBounds(335, 40, 140, 50);
         waterC.setFont(new Font("arial", Font.BOLD, 14));
         waterC.setOpaque(true);
@@ -50,7 +50,7 @@ public class Impacto extends JFrame {
         elect.setBackground(Color.decode("#dbeddc"));
         panel.add(elect);
 
-        JLabel electC = new JLabel("5 kWh", SwingConstants.CENTER);
+        JLabel electC = new JLabel("X kWh", SwingConstants.CENTER);
         electC.setBounds(335, 100, 140, 50);
         electC.setFont(new Font("arial", Font.BOLD, 14));
         electC.setOpaque(true);
@@ -63,7 +63,6 @@ public class Impacto extends JFrame {
         tip.setForeground(Color.green);
         panel.add(tip);
 
-        // Metodo random para imprimir un consejo diferente cada vez
         JTextArea tip1 = new JTextArea(
                 "Todas las personas estamos interconectadas y dependemos\n las unas de las otras. Todas y todas sumamos.\n Todos los gestos suman. Todo suma, también en la\n defensa de nuestro patrimonio más ancestral:\n el medio ambiente.");
         tip1.setBounds(20, 200, 400, 150);
@@ -80,9 +79,10 @@ public class Impacto extends JFrame {
         ActionListener goHome = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Usuario v1 = new Usuario();
+                Usuario v1 = new Usuario(i);
                 v1.setVisible(true);
                 dispose();
+
             }
         };
         home.addActionListener(goHome);
