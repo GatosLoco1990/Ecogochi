@@ -7,11 +7,12 @@ import javax.swing.*;
 import perfiles.Personas;
 
 public class Usuario extends JFrame {
-
-    private int i;
+    public static boolean recargar = false;
+    private int i ;
     public JPanel panel = new JPanel();
 
-    public Usuario(int i) {
+    public Usuario() {
+
         panel.setLayout(null);
 
         this.setSize(500, 400);
@@ -27,35 +28,30 @@ public class Usuario extends JFrame {
         panel.add(title);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        System.out.println("En usu es: " + this.i);
-
-        System.out.println("sin el this es: " + i);
         // Opciones
-        userView(i);
+        userView();
     }
 
-    public int getI() {
-        return i;
-    }
+    private void userView() {
 
-    public void setI(int i) {
-        this.i = i;
-    }
+        Personas[] persona = new Personas[100];
+        persona[0] = new Personas("Ricardo", "tuki", "ricardogandica@hotmail.com");
+        persona[1] = new Personas("Jose", "retuki", "correo");
 
-    private void userView(int i) {
-
-        Personas kka = new Personas();
-
-        JLabel name = new JLabel("Nombre: " + kka.getPersonas()[i].getNombre(), SwingConstants.CENTER);
+        JLabel name = new JLabel("Nombre: josetor101");
         name.setBounds(30, 40, 300, 30);
         name.setFont(new Font("arial", Font.BOLD, 14));
         panel.add(name);
 
-        JLabel points = new JLabel("Puntos: " + kka.getPersonas()[i].getPuntos(), SwingConstants.CENTER);
-        points.setBounds(28, 70, 300, 30);
+        JLabel points = new JLabel();
+        points.setText("Puntos: "+Personas.puntos);
+        points.setBounds(30, 70, 300, 30);
         points.setFont(new Font("arial", Font.BOLD, 14));
         panel.add(points);
 
+        if(recargar){
+            points.setText("Puntos: "+Personas.puntos);
+        }
         JButton pet = new JButton("Mascota");
         pet.setBounds(50, 190, 170, 50);
         pet.setBackground(Color.decode("#dbeddc"));
@@ -84,10 +80,9 @@ public class Usuario extends JFrame {
         ActionListener pet1 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Mascota v1 = new Mascota(i);
+                Mascota v1 = new Mascota();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         pet.addActionListener(pet1);
@@ -95,10 +90,9 @@ public class Usuario extends JFrame {
         ActionListener task1 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Tareas v1 = new Tareas(i);
+                Tareas v1 = new Tareas();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         task.addActionListener(task1);
@@ -106,10 +100,9 @@ public class Usuario extends JFrame {
         ActionListener impact1 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Impacto v1 = new Impacto(i);
+                Impacto v1 = new Impacto();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         impacto.addActionListener(impact1);
@@ -117,15 +110,22 @@ public class Usuario extends JFrame {
         ActionListener noticia1 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Noticias v1 = new Noticias(i);
+                Noticias v1 = new Noticias();
                 v1.setVisible(true);
                 dispose();
-
             }
         };
         noticia.addActionListener(noticia1);
         // Volver a la pagina inicial
 
+    }
+
+    public void setPe(int i) {
+        this.i = i;
+    }
+
+    public int getPe() {
+        return i;
     }
 
 }

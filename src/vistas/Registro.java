@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import perfiles.Personas;
-import vistas.Verificacion;
+import vistas.UserVerification;
 
 public class Registro extends JFrame {
     public JPanel panel = new JPanel();
@@ -64,25 +64,34 @@ public class Registro extends JFrame {
 
         // Verificar que no estén vacios los campos
         // Volver a la pagina inicial
-        if (mail != null && password != null && name != null) {
-
             ActionListener log1 = new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
-                    String nombre = name.getText().trim();
-                    String correo = mail.getText().trim();
-                    String contraseña = password.getText().trim();
-                    Personas pers = new Personas();
+                    // String nombre = name.getText().trim();
+                    // String correo = mail.getText().trim();
+                    // String contraseña = password.getText().trim();
+                    // Personas[] persona = new Personas[100];
+                    // persona[3] = new Personas(nombre, contraseña, correo);
 
-                    pers.getPersonas()[3] = new Personas(nombre, contraseña, correo, 3);
-
-                    Usuario v1 = new Usuario(3);
+                    Home v1 = new Home();
                     v1.setVisible(true);
+                    dispose();
 
                 }
             };
-            send.addActionListener(log1);
-        }
+            log.addActionListener(log1);
+            ActionListener send1 = new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+
+                    Usuario v1 = new Usuario();
+                    v1.setVisible(true);
+                    dispose();
+
+                }
+            };
+            send.addActionListener(send1);
+        
     }
 
 }
